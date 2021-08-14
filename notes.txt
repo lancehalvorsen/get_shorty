@@ -1,0 +1,42 @@
+Before you can run this application, there are some things you'll need to make sure are installed on your machine.
+
+
+- Postgres - any supported version should work (that is, 9.6 or above)
+- Erlang - OTP 23 or above
+- Elixir - version 1.12 or above
+- Nodejs - version 14 or above
+- npm - version 7 or above
+
+
+The quickest way to get Postgres installed on a Mac is with the postgres app, available here: https://postgresapp.com/  For other platforms, take a look at the download page: https://www.postgresql.org/download/
+
+For the other software packages, asdf is a powerful and flexible option for both installing and running different versions of each package. If you aren't already using asdf, you can get started here: https://asdf-vm.com/
+
+
+Once you have the necessary software packages installed, you can set up the application from the command line using the included Makefile.
+
+- Change into the root directory for this project.
+- Run: make setup
+
+That will install and compile all dependencies, both Elixir packages and Node modules. It will initialize the database for this project and run the schema migrations.
+
+After that, if you would like to run the tests, both ExUnit tests and cypress integration specs, there is also a make target to do so.
+
+- Change into the root directory for this project.
+- Run: make test
+
+And finally, if you want to run the server, there is yet another make target for that.
+
+- Change into the root directory for this project.
+- Run: make server
+
+The server will respond to requests at: http://localhost:4000
+
+Going to that address in a browser will bring up a form into which you can submit a long form URL that you want to shorten.
+
+If you submit a mal-formed URL, the server will respond with errors pointing out how to correct the problem.
+
+If you submit a well-formed URL, you will get back a shortened URL of the form http://localhost:4000/(slug) where the slug is an 8 digit string of random letters and numbers.
+
+If you copy that shortened URL and paste it into the location bar of a new browser tab, the server will redirect you to the original URL you submitted.
+
