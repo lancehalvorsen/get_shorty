@@ -10,10 +10,14 @@ Before you can run this application, there are some things you'll need to make s
 
 The quickest way to get Postgres installed on a Mac is with the postgres app, available here: https://postgresapp.com/  For other platforms, take a look at the download page: https://www.postgresql.org/download/
 
-For the other software packages, asdf is a powerful and flexible option for both installing and running different versions of each package. If you aren't already using asdf, you can get started here: https://asdf-vm.com/
+Once you have Postgres running, make sure you have a user 'postgres' that can log in with the password 'postgres'. Ecto is configured to use those credentials by default. If those don't work for you, you can change the credentials to ones that do work in config/dev.exs, config/test.exs, and config/integration_test.exs.
+
+For the other software packages, asdf is a powerful and flexible tool for both installing and running different versions of each package. If you aren't already using asdf, you can get started here: https://asdf-vm.com/
 
 
 Once you have the necessary software packages installed, you can set up the application from the command line using the included Makefile.
+
+It is important that your run the following command, make setup, first, before either of the other two.
 
 - Change into the root directory for this project.
 - Run: make setup
